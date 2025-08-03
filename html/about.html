@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Love</title>
+    <style>
+        html, body {
+            background-color: #1ea8ff;
+        }
+
+        .wrapper {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>About</h1>
+    <p>Love Language is a <a href="https://en.wikipedia.org/wiki/Substitution_cipher">substitution cipher</a> built upon
+        the
+        principals of <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>, <a
+                href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a>, and <a
+                href="https://en.wikipedia.org/wiki/Emoji">emoji</a>.</p>
+    <p>Encoding works with a set of 16 unique heart emoji which are mapped to the hexadecimal values <code>0</code> thru
+        <code>f</code>.</p>
+    <p>🩷🧡💛💚🩵💙💜🖤🩶🤍🤎💖💞💓💟💝</p>
+    <p>Each character of the input cleartext is first converted to it's ASCII numerical value, then that value is
+        converted
+        to hexadecimal (base 16) which results in a two digit hexadecimal value since all ASCII values are below
+        256.</p>
+    <p>Next the two digits of hexadecimal are changed to their respective hearts within the heart emoji mapping. Hearts
+        from
+        all characters are combined to make the complete output text, known as "Love Text"</p>
+    <p>Decoding uses the reverse of this process.</p>
+    <p><a href="index.html">Back to encoder/decoder</a></p>
+</div>
+
+
+</body>
+</html>
