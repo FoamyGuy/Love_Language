@@ -7,7 +7,11 @@ def hex_digits(char):
 
 def hearts(hex_digits):
     first_heart = HEARTS[int(hex_digits[0], 16)]
-    second_heart = HEARTS[int(hex_digits[1], 16)]
+    try:
+        second_heart = HEARTS[int(hex_digits[1], 16)]
+    except IndexError:
+        second_heart = first_heart
+        first_heart = HEARTS[0]
     return first_heart + second_heart
 
 def encode(message):
@@ -30,6 +34,6 @@ def decode(message):
 
 
 if __name__ == '__main__':
-    lovetext = encode("Hello World, this is Love Language")
+    lovetext = encode("Hello World, this is Love Language\nnext line")
     print(lovetext)
     print(decode(lovetext))

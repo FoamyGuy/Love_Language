@@ -1,5 +1,5 @@
-let $inputTxt = document.querySelector("#input_txt");
-let $outputTxt = document.querySelector("#output_txt");
+let $clearTxt = document.querySelector("#clear_txt");
+let $loveTxt = document.querySelector("#love_txt");
 
 //HEARTS = "🩷🧡💛💚🩵💙💜🖤🩶🤍🤎💖💞💓💟💝";
 HEARTS = [
@@ -7,6 +7,7 @@ HEARTS = [
     "🩵", "💙", "💜", "🖤",
     "🩶", "🤍", "🤎", "💖",
     "💞", "💓", "💟", "💝"];
+
 function hexDigits(char) {
     let dec_val = char.charCodeAt(0)
     let hex_val = dec_val.toString(16)
@@ -14,11 +15,16 @@ function hexDigits(char) {
 }
 
 function heartsFromDigits(hexDigits) {
-
-    let firstHeart = HEARTS[parseInt(hexDigits[0], 16)];
-    //console.log("1 digit: " + hexDigits[0] + " index: " + parseInt(hexDigits[0], 16) + " heart: " + firstHeart);
-    let secondHeart = HEARTS[parseInt(hexDigits[1], 16)];
-    //console.log("2 digit: " + hexDigits[1] + " index: " + parseInt(hexDigits[1], 16) + " heart: " + secondHeart);
+    let firstHeart, secondHeart;
+    if (hexDigits.length === 2) {
+        firstHeart = HEARTS[parseInt(hexDigits[0], 16)];
+        //console.log("1 digit: " + hexDigits[0] + " index: " + parseInt(hexDigits[0], 16) + " heart: " + firstHeart);
+        secondHeart = HEARTS[parseInt(hexDigits[1], 16)];
+        //console.log("2 digit: " + hexDigits[1] + " index: " + parseInt(hexDigits[1], 16) + " heart: " + secondHeart);
+    }else if (hexDigits.length === 1){
+        firstHeart = HEARTS[0];
+        secondHeart = HEARTS[parseInt(hexDigits[0], 16)];
+    }
     return firstHeart + secondHeart;
 }
 
@@ -49,11 +55,10 @@ function decode(message) {
     return cleartext.join("")
 }
 
-$inputTxt.addEventListener('input', function () {
-    $outputTxt.value = encode($inputTxt.value);
+$clearTxt.addEventListener('input', function () {
+    $loveTxt.value = encode($clearTxt.value);
 });
 
-$outputTxt.addEventListener("input", function(){
-   console.log("Love Text input");
-   $inputTxt.value = decode($outputTxt.value);
+$loveTxt.addEventListener("input", function () {
+    $clearTxt.value = decode($loveTxt.value);
 });
